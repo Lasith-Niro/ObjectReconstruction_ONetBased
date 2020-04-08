@@ -125,6 +125,7 @@ class Trainer(BaseTrainer):
         batch_size = data['points'].size(0)
         inputs = data.get('inputs', torch.empty(batch_size, 0)).to(device)
 
+        # shape = (32, 32, 32)
         shape = (32, 32, 32)
         p = make_3d_grid([-0.5] * 3, [0.5] * 3, shape).to(device)
         p = p.expand(batch_size, *p.size())
